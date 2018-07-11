@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Generate covers from ISBNs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <style type="text/css">
+      main {
+        margin: 0 auto;
+        width: 90%;
+      }
+      h1, p {
+        text-align: center;
+      }
+      #text-isbn {
+        display: block;
+        height: 15em;
+        margin: 0 auto;
+        width: 15em;
+      }
+      #btn-generate {
+        display: block;
+        margin: 1em auto;
+      }
+      #results {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+      }
+      #results li {
+        display: inline-block;
+        margin: 0 1em 1em 0;
+      }
+      #result li:last-child {
+        margin: 0;
+      }
+    </style>
+  </head>
+<body>
+  <main>
+    <h1>Generate covers from ISBNs</h1>
+    <p>Put each ISBN on its own line</p>
+    <textarea id="text-isbn"></textarea>
+    <button id="btn-generate">Generate</button>
+    <ul id="results"><!-- Results --></ul>
+  </main>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('#btn-generate').click(function(){
+        isbnList = $('#text-isbn').val().split('\n');
+        var isbnListLength = isbnList.length;
+        for (var i = 0; i < isbnListLength; i++) {
+          $('#results').append(
+            '<li><img src="http://i.harperapps.com/covers/' +
+            $.trim(isbnList[i]) +
+            '/x150.jpg" alt="' +
+            $.trim(isbnList[i]) +
+            '"><br><a target="_blank" href="http://www.harpercollins.com/' +
+            $.trim(isbnList[i]) +
+            '">'+ $.trim(isbnList[i]) + '</li>'
+          );
+        }
+      });
+    })
+  </script>
+</body>
+</html>

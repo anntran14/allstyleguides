@@ -1,0 +1,37 @@
+body {
+  font-family: sans-serif;
+}
+
+#container {
+  margin: 1em auto;
+  width: 50%;
+}
+
+p {
+  text-align: center;
+}
+
+form, #social-btns, #reward-tracking {
+  text-align: center;
+  margin: 1em 0;
+}
+
+input {
+  border: 1px solid #000;
+}
+
+#i_email {
+  width: 50%;
+  height: 2em;
+}
+
+#i_submit {
+  background-color: #fff;
+  height: 2em;
+  border: 1px solid black;
+}
+
+label {
+  display: block;
+  margin: 1em;
+}
